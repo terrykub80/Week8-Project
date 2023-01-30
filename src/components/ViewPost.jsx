@@ -10,7 +10,7 @@ export default function ViewPost({ post }) {
         fetch(`https://responsible-knowledgeable-restaurant.glitch.me/blog/posts/${posts.id}`)
             .then(res => res.json())
             .then(data => setPosts(data))
-    },[])
+    },)
 
 
     return (
@@ -23,3 +23,5 @@ export default function ViewPost({ post }) {
         </div>
     )
 }
+
+
