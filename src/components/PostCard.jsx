@@ -7,7 +7,8 @@ export default function PostCard({ post }) {
             <div className="card-body">
                 <h5 className="card-title">{ post.title }</h5>
                 <p className="card-text">{ post.body }</p>
-                <Link className='btn btn-primary' to='/ViewPost'>See More</Link>
+                <Link className='btn btn-primary' to='/ViewPost' title={post.title} content={post.content} id={post.id} >See More</Link>
+
             </div>
         </div>
     )
