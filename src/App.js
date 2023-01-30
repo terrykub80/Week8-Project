@@ -29,12 +29,19 @@ export default function App() {
         setLoggedIn(true)
     }
 
+    function logUserOut(){
+        setLoggedIn(false);
+        localStorage.removeItem('token');
+        localStorage.removeItem('tokenExp');
+        flashMessage(`You have logged out`, "primary");
+    }
+
 
 
 
     return (
         <>
-            <Navbar loggedIn={loggedIn}/>
+            <Navbar loggedIn={loggedIn} logUserOut={logUserOut}/>
             <div className="container">
                 {message ? <AlertMessage message={message} category={category} flashMessage={flashMessage} /> : null}
                 { <Routes>
@@ -42,6 +49,7 @@ export default function App() {
                     <Route path="/viewpost" element={<ViewPost />} />
                     <Route path="/register" element={<Register flashMessage={flashMessage} />} />
                     <Route path="/login" element={<Login flashMessage={flashMessage} logUserIn={logUserIn} />} />
+                    <Route path="/create" element={<CreatePost loggedIn={loggedIn} flashMessage={flashMessage} />} />
                     <Route path="/create" element={<CreatePost loggedIn={loggedIn} flashMessage={flashMessage} />} />
                 </Routes>
                 }
